@@ -17,7 +17,7 @@ Diese habe ich anschließend an die Bedürfnisse der Marienschule angepasst: [pi
 
 Der große Vorteil dieser Lösung ist, dass sie plattformübergreifend auf Raspberry Pi 4 und 5 läuft und alle kleinen Anpassungen, die ich bisher in einzelnen Skripten im System verteilt hatte, in einem Paket gut verwaltet. Außerdem bietet sie eine sehr einfache Möglichkeit, die anzuzeigende Website zu ändern.
 
-**Sicherheitsaspekt:** Ich habe den Code selbst Zeile für Zeile vollständig überprüft und das Repository „geforkt“ (also eine Kopie erstellt, die nur noch von mir bearbeitet werden kann). Es gibt keine automatischen Updates, welche Änderungen vornehmen könnten. Nach der Installation habe weder ich – noch eine andere Person – von außen Zugriff, oder die Möglichkeit, Änderungen vorzunehmen.
+**Sicherheitsaspekt:** Ich habe den Code selbst Zeile für Zeile vollständig überprüft und das Repository „geforkt“ (also eine Kopie erstellt, die nur von mir bearbeitet werden kann). Es gibt keine automatischen Updates, welche Änderungen vornehmen könnten. Nach der Installation habe weder ich – noch eine andere Person – von außen Zugriff, oder die Möglichkeit, Änderungen vorzunehmen.
 
 > [30.03.2025] ~Lennart Bergmann 
 
@@ -30,7 +30,7 @@ Der große Vorteil dieser Lösung ist, dass sie plattformübergreifend auf Raspb
 Mit dem [Raspberry Pi Imager](https://www.raspberrypi.com/software/) kann man ganz einfach das Betriebssystem auf die SD-Karte flashen lassen:
 
 ```
-1. Modell wählen  
+1. Modell wählen: vorhandenes Modell wählen (nur mit 4 und 5 getestet)   
 2. Betriebssystem wählen: "Raspberry Pi OS (32-bit)"  
 3. SD-Karte wählen und auf "Weiter" klicken  
 4. Bei der Frage, ob Voreinstellungen vorgenommen werden sollen, auf "Einstellungen bearbeiten" klicken  
@@ -54,13 +54,13 @@ Die IP-Adresse kann entweder mit Tools wie z.B. [Advanced IP Scanner](https://ww
 2. **X11 als Window-System einstellen:**  
 Raspberry Pi OS verwendet in neueren Versionen Wayland anstelle von X11. Bestimmte benötigte Funktionen sind mit Wayland nicht möglich bzw. deutlich komplizierter umzusetzen. Die folgenden Schritte setzen X11 als Standard-Window-System:
 
-```bash
-sudo raspi-config
-```
+  ```bash
+  sudo raspi-config
+  ```
 
-Dies öffnet ein Einstellungsmenü, das sich mit den Pfeiltasten und Enter navigieren lässt.  
-Unter dem Punkt `6 Advanced Options` und dann `A6 Wayland` die Option `W1 X11` auswählen und bestätigen.  
-Nun auf `<Finish>` gehen und den Raspberry neu starten.
+  Dies öffnet ein Einstellungsmenü, das sich mit den Pfeiltasten und Enter navigieren lässt.  
+  Unter dem Punkt `6 Advanced Options` und dann `A6 Wayland` die Option `W1 X11` auswählen und bestätigen.  
+  Nun auf `<Finish>` gehen und den Raspberry neu starten.
 
 ---
 
@@ -71,6 +71,7 @@ Um PiOSK zu installieren, folgenden Befehl auf dem Raspberry ausführen:
 ```bash
 curl -sSL https://raw.githubusercontent.com/LABSTORM-MG/piosk-Marienschule/refs/heads/main/scripts/setup.sh | sudo bash -
 ```
+Dies kann ein Weile in Anspruch nehmen.
 
 Dieser Befehl setzt automatisch alle Einstellungen und lädt alle benötigten Dateien herunter.
 
