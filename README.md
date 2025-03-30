@@ -53,14 +53,12 @@ Die IP-Adresse kann entweder mit Tools wie z.B. [Advanced IP Scanner](https://ww
 
 2. **X11 als Window-System einstellen:**  
 Raspberry Pi OS verwendet in neueren Versionen Wayland anstelle von X11. Bestimmte benötigte Funktionen sind mit Wayland nicht möglich bzw. deutlich komplizierter umzusetzen. Die folgenden Schritte setzen X11 als Standard-Window-System:
-
-  ```bash
-  sudo raspi-config
-  ```
-
-  Dies öffnet ein Einstellungsmenü, das sich mit den Pfeiltasten und Enter navigieren lässt.  
-  Unter dem Punkt `6 Advanced Options` und dann `A6 Wayland` die Option `W1 X11` auswählen und bestätigen.  
-  Nun auf `<Finish>` gehen und den Raspberry neu starten.
+```bash
+sudo raspi-config
+```
+       Dies öffnet ein Einstellungsmenü, das sich mit den Pfeiltasten und Enter navigieren lässt.  
+       Unter dem Punkt `6 Advanced Options` und dann `A6 Wayland` die Option `W1 X11` auswählen und bestätigen.  
+       Nun auf `<Finish>` gehen und den Raspberry neu starten.
 
 ---
 
