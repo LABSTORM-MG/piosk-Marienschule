@@ -41,7 +41,7 @@ echo -e "${INFO}Updating and upgrading packages...${RESET}"
 apt -qq update && apt -qq upgrade -y && apt -qq autoremove -y
 
 echo -e "${INFO}Installing dependencies...${RESET}"
-apt -qq install -y git jq wtype nodejs npm unclutter
+apt -qq install -y git jq xdotool nodejs npm unclutter
 
 echo -e "${INFO}Adding Unclutter to autostart to hide mouse cursor...${RESET}"
 echo 'unclutter -idle 0 &' >> ~/.xsessionrc
