@@ -34,13 +34,16 @@ else
   echo -e "${SUCCESS}\tautologin has been enabled!${RESET}"
 fi
 
+echo -e "${INFO}Configuring screen blanking...${RESET}"
+sudo sed 's/$/ consoleblank=0/' /boot/firmware/cmdline.txt | sudo tee /boot/firmware/cmdline.txt
+
 echo -e "${INFO}Updating and upgrading packages...${RESET}"
-apt update && apt upgrade -y && apt autoremove -y
+apt -qq update && apt -qq upgrade -y && apt -qq autoremove -y
 
 echo -e "${INFO}Installing dependencies...${RESET}"
-apt install -y git jq wtype nodejs npm unclutter
+apt -qq install -y git jq wtype nodejs npm unclutter
 
-echo -e "${INFO}Adding Unclutter to autostart to hide mous cursor${RESET}"
+echo -e "${INFO}Adding Unclutter to autostart to hide mouse cursor...${RESET}"
 echo 'unclutter -idle 0 &' >> ~/.xsessionrc
 
 echo -e "${INFO}Cloning repository...${RESET}"
