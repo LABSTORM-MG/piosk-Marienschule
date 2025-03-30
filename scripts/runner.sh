@@ -1,4 +1,8 @@
 #!/bin/bash
+xset s off        # Disable screen saver
+xset -dpms        # Disable DPMS (Energy Star) features
+xset s noblank    # Don't blank the video device
+
 chromium-browser \
   $(jq -r '.urls | map(.url) | join(" ")' /opt/piosk/config.json) \
   --disable-component-update \
@@ -17,4 +21,9 @@ chromium-browser \
   --ignore-gpu-blocklist \
   --kiosk \
   --no-first-run \
-  --noerrdialogs
+  --noerrdialogs \
+  --no-default-browser-check \
+  --disable-translate \
+  --disable-features=TranslateUI,AutofillServerCommunication,PasswordManagerUI \
+  --user-data-dir=/tmp/chrome-profile
+
