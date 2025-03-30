@@ -34,6 +34,9 @@ else
   echo -e "${SUCCESS}\tautologin has been enabled!${RESET}"
 fi
 
+echo -e "${INFO}Updating and upgrading packages...${RESET}"
+apt update && apt upgrade -y && apt autoremove -y
+
 echo -e "${INFO}Installing dependencies...${RESET}"
 apt install -y git jq wtype nodejs npm
 
