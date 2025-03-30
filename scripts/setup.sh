@@ -38,7 +38,10 @@ echo -e "${INFO}Updating and upgrading packages...${RESET}"
 apt update && apt upgrade -y && apt autoremove -y
 
 echo -e "${INFO}Installing dependencies...${RESET}"
-apt install -y git jq wtype nodejs npm
+apt install -y git jq wtype nodejs npm unclutter
+
+echo -e "${INFO}Adding Unclutter to autostart to hide mous cursor${RESET}"
+echo 'unclutter -idle 0 &' >> ~/.xsessionrc
 
 echo -e "${INFO}Cloning repository...${RESET}"
 git clone https://github.com/LABSTORM-MG/piosk-Marienschule.git "$PIOSK_DIR"
